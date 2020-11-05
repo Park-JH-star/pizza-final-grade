@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: grade
-          image: admin20.azurecr.io/grade:latest
+          image: admin20registry.azurecr.io/grade:latest
           ports:
             - containerPort: 8080
           readinessProbe:
