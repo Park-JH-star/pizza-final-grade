@@ -15,8 +15,15 @@ public class Grade {
     private Long score;
     private String gradeStatus;
 
+
     @PrePersist
     public void onPrePersist(){
+        try {
+            Thread.currentThread().sleep((long) (400 + Math.random() * 350));
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
         GradeCanceled gradeCanceled = new GradeCanceled();
         BeanUtils.copyProperties(this, gradeCanceled);
         gradeCanceled.publishAfterCommit();
