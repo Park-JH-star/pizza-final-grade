@@ -18,12 +18,6 @@ public class Grade {
 
     @PrePersist
     public void onPrePersist(){
-        try {
-            Thread.currentThread().sleep((long) (400 + Math.random() * 300));
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-
         GradeCanceled gradeCanceled = new GradeCanceled();
         BeanUtils.copyProperties(this, gradeCanceled);
         gradeCanceled.publishAfterCommit();
